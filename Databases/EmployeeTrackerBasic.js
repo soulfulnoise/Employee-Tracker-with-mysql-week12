@@ -188,3 +188,7 @@ function viewEmployee() {
         managmentView();
     });
 }
+function quit(){
+    connection.end();
+    process.exit();
+}
