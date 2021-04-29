@@ -1,0 +1,27 @@
+{
+  "name": "employeetrack",
+  "version": "1.0.0",
+  "description": "an application that tracks employees",
+  "main": "EmployeeTrackerBasic.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/soulfulnoise/Employee-Tracker-with-mysql-week12.git"
+  },
+  "keywords": [
+    "inquire",
+    "mysql"
+  ],
+  "author": "Lee Spaulding",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/soulfulnoise/Employee-Tracker-with-mysql-week12/issues"
+  },
+  "homepage": "https://github.com/soulfulnoise/Employee-Tracker-with-mysql-week12#readme",
+  "dependencies": {
+    "inquire": "^0.4.8",
+    "mysql": "^2.18.1"
+  }
+}
