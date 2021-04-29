@@ -10,3 +10,22 @@ const connection = mysql.createConnection({
     password:'root',
     database:'employeeTracker_DB',
 });
+
+connection.connect(err => {
+    if (err) throw err;
+    console.log(`Connection Success ${connectiong.threadID}`)
+    managmentview();
+});
+
+//Management View to handle employees
+
+const managmentview = () => {
+    inquirer
+    .prompt({
+        type:"list",
+        name:"options",
+        message: "What would like to do?",
+        choices[
+            
+        ]
+    });
