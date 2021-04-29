@@ -22,6 +22,7 @@
   "homepage": "https://github.com/soulfulnoise/Employee-Tracker-with-mysql-week12#readme",
   "dependencies": {
     "inquire": "^0.4.8",
-    "mysql": "^2.18.1"
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.7"
   }
 }
