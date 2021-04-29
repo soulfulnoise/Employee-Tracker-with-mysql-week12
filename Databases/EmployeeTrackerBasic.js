@@ -13,35 +13,36 @@ const connection = mysql.createConnection({
 
 connection.connect(err => {
     if (err) throw err;
-    console.log(`Connection Success ${connectiong.threadID}`)
-    managmentview();
+    console.log(`Connection Success ${connectiong.threadID}`);
+
+    managmentView();
 });
+
+
 
 //Management View to handle employees
 
-const managmentview = () => {
+const managmentView = () => {
     inquirer
     .prompt({
-        name:'options',
         type:'list',
         message: 'What would like to do?',
         choices:[
+            "Add new Department",
+            'Add employee Role',
+            'Add new Employee',
+            'View Departments',
             'View current Employees',
-            'View  Employees by Department',
-            'View  Employees by Manager',
-            'Add  new Employee',
-            'Remove Employee',
-            'Update Employees Role',
-            'Update Employee Manager'],
-
-            name:"choice"
+            'View Roles',          
+            'Update Employees Role',],
+            name:'option',
     })
     // Based on choice call one of above choices
     .then((answer) => {
-        console.log(answer. choice);
+        console.log(res.choice);
 
-        switch (answer. choice) {
-            case 'View current empployees':
+        switch (res.choice) {
+            case 'View current Employees':
             viewEmployee();
             break;
 
@@ -72,54 +73,13 @@ const managmentview = () => {
     }) 
 };
 
-const viewEmployee = (inputs =[]) => {
-    inquirer
-    .prompt({
-        name:"viewEmployee",
-        type:"input",
-        message:"Enter Employees name"
-    })
-    //grabbing the info of employee
-    .then((choice) => {
-      let qury = "SELECT first_name, last_name, id FROM employee WHERE ?";
-      connection.query(query,{first_name , last_name: choice.viewEmployee }, function
-          (err,res)
-          {
-              if(err) throw err;
+function viewEmployee() {
+    // pull from database  give results in console.log
+    let query ="SELECT * FROM emplooyee";
+    connection.query(query,function(err,res){
+        if (err) throw err;
+        console.table(res);
+        managmentView();
+    });
 
-              for (var i = 0; i < res.length; i++) {
-                  console.log(
-                      " | First Name: " + res[i].first_name +
-                      " | Last name: " + res[i].last_name +
-                      " | Id: " + res[i].id
-                  );
-              }
-          });
-          employeeTracker_DB()
-    });
-  }
-const departmentView = (res) => {
-    let query = "SELECT dept_name FROM department";
-    connection.query(query, function(err, res) {
-      for (var i = 0; i < res.length; i++) {
-        console.log(res[i].name);
-      }
-    });
-  }
-  const managerView = (res) => {
-    let query = "SELECT maneger_id, first_name, last_name FROM employee WHERE manager_id IN (SELECT Manager_id FROM employee WHERE manager_id IS NOT NULL)";
-    connection.query(query, function(err, res) {
-      
-      if(err) throw err;
-  
-      for (var i = 0; i < res.length; i++) {
-        console.log(
-          res[i].first_name + " " + 
-          res[i].last_name + " || Id: " + 
-          res[i].id
-        );
-      }
-    })
-    menu();
-  }
- 
+}
