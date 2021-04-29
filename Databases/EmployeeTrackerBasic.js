@@ -74,6 +74,7 @@ const managmentView = () => {
 };
 
 function addDepartment() {
+    // Prompt for info about new Department
     inquirer.prompt({
         type:"input",
         message:"Name the new Department.",
@@ -86,6 +87,18 @@ function addDepartment() {
             managmentView();
         })
     })
+}
+
+function addEmployeeRole() {
+    inquirer.prompt([
+        {
+            type:"input",
+            message:"Name of Role?",
+            name:"role_name"
+        },
+        
+
+    ])
 }
 
 
