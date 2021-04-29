@@ -21,11 +21,20 @@ connection.connect(err => {
 
 const managmentview = () => {
     inquirer
-    .prompt({
+    .prompt([
+        {
         type:"list",
         name:"options",
         message: "What would like to do?",
-        choices[
-            
-        ]
-    });
+        choices:[
+            "View all Employees",
+            "View all Employees by Department",
+            "View all Employees by Manager",
+            "Add Employee",
+            "Remove Employee",
+            "Update Emplpoyee's Role",
+            "Update Employee Manager",
+        ],
+        name:"choice"
+    }
+])
