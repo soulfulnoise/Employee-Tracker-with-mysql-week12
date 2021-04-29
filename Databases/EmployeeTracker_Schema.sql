@@ -14,3 +14,12 @@ role_id INT NOT NULL,
 manager_id INT ,
 PRIMARY KEY(id)
 );
+
+-- Created Employee roles table
+CREATE TABLE role (
+id INT NOT NULL AUTO_INCREMENT,
+title VARCHAR (30) NOT NULL,
+salary DECIMAL(10,2) NULL,
+department_id INT NOT NULL,
+PRIMARY KEY (id)
+);
