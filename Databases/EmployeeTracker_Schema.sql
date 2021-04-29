@@ -16,7 +16,7 @@ PRIMARY KEY(id)
 );
 
 --  Employee roles table
-CREATE TABLE role (
+CREATE TABLE  employeerole (
 id INT NOT NULL AUTO_INCREMENT,
 title VARCHAR (30) NOT NULL,
 salary DECIMAL(10,2) NULL,
