@@ -4,7 +4,7 @@
 
 USE Employee_trackerDB;
 
-INSERT INTO employee(first_name, last_name, role_id, manager_id)
+INSERT INTO emplooyee(first_name, last_name, role_id, manager_id)
 
 VALUES
 ("Alvin","Thompson",8,NULL),
@@ -17,27 +17,27 @@ VALUES
 ("Billy","IDOl",16,NULL),
 ("Naomi","Lapagila",13,4),
 ("Efraim ","Diveroli",12,4),
-("Vincent","Abraham",15,4),
-,
+("Vincent","Abraham",15,4);
+
 
 
 INSERT INTO role(title,salary, department_id)
 
 VALUES
 
-("Office Manager", 150000, 2)
-("Admin Manager", 91000, 2)
-("Assistant", 60000,2)
-("Opertions Manager", 300000, 7)
-("Payroll", 97000, 7)
-("Sales Rep", 90000, 7)
-("Account Rep", 100000, 7)
-("Tech Manager", 250000, 4)
-("Project Lead",85000 , 4)
-("Accessibility", 1115000,4)
-("Senior Developer", 140000, 4)
-("Junior Developer", 80000, 4)
-("Computer Enginer", 97000,4)
+("Office Manager", 150000, 1),
+("Admin Manager", 91000, 1),
+("Assistant", 60000,1),
+("Opertions Manager", 300000, 2),
+("Payroll", 97000, 2),
+("Sales Rep", 90000, 2),
+("Account Rep", 100000, 2),
+("Tech Manager", 250000, 3),
+("Project Lead",85000 , 3),
+("Accessibility", 1115000,3),
+("Senior Developer", 140000, 3),
+("Junior Developer", 80000, 3),
+("Computer Enginer", 97000,3),
 
 
 INSERT INTO department(department_name)
