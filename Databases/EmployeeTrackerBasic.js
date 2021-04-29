@@ -153,15 +153,31 @@ function updateEmployee() {
             name:"updateRole",
         }
     ]).then(function(answer){
-        connection.query("UPDATE employee SET role_id=?",[answer.empUpdate,answer.updateRole],function(err,res){
+        connection.query("UPDATE emplooyee SET role_id=?",[answer.empUpdate,answer.updateRole],function(err,res){
             if(err) throw err;
             console.table(res);
             managmentView();
         });
     });
 }
+// giving user acess to db to view department roles and employees
+function viewDepartment() {
+    let query = "SELECT * FROM department";
+    connection.query(query, function(err,res){
+        if(err) throw err;
+        console.table(res);
+        managmentView();
+    });
+}
 
-
+function viewRoles() {
+    let query = "SELECT * FROM role";
+    connection.query(query, function(err,res){
+        if(err) throw err;
+        console.table(res);
+        managmentView();
+    });
+}
 
 function viewEmployee() {
     // pull from database  give results in console.log
@@ -171,5 +187,4 @@ function viewEmployee() {
         console.table(res);
         managmentView();
     });
-
 }
