@@ -119,7 +119,7 @@ function addEmployee() {
         {
             type:"input",
             message:"Last name of employee?",
-            name:"empLameName"
+            name:"empLastName"
         },
         {
             type:"input",
@@ -137,8 +137,28 @@ function addEmployee() {
             console.table(res);
             managmentView();
         })
-    })
+    });
+}
 
+function updateEmployee() {
+    inquirer.prompt([
+        {
+            type:"input",
+            message:"Choose an employee to update.",
+            name:"empUpdate",
+        },
+        {
+            type:"input",
+            message:"What do you want to updats?.",
+            name:"updateRole",
+        }
+    ]).then(function(answer){
+        connection.query("UPDATE employee SET role_id=?",[answer.empUpdate,answer.updateRole],function(err,res){
+            if(err) throw err;
+            console.table(res);
+            managmentView();
+        });
+    });
 }
 
 
