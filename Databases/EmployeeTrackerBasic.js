@@ -42,7 +42,7 @@ const managmentview = () => {
 
         switch (answer. choice) {
             case 'View current empployees':
-            employeeView();
+            viewEmployee();
             break;
 
             case 'View  Employees by Department':
@@ -71,3 +71,55 @@ const managmentview = () => {
         }
     }) 
 };
+
+const viewEmployee = (inputs =[]) => {
+    inquirer
+    .prompt({
+        name:"viewEmployee",
+        type:"input",
+        message:"Enter Employees name"
+    })
+    //grabbing the info of employee
+    .then((choice) => {
+      let qury = "SELECT first_name, last_name, id FROM employee WHERE ?";
+      connection.query(query,{first_name , last_name: choice.viewEmployee }, function
+          (err,res)
+          {
+              if(err) throw err;
+
+              for (var i = 0; i < res.length; i++) {
+                  console.log(
+                      " | First Name: " + res[i].first_name +
+                      " | Last name: " + res[i].last_name +
+                      " | Id: " + res[i].id
+                  );
+              }
+          });
+          employeeTracker_DB()
+    });
+  }
+const departmentView = (res) => {
+    let query = "SELECT dept_name FROM department";
+    connection.query(query, function(err, res) {
+      for (var i = 0; i < res.length; i++) {
+        console.log(res[i].name);
+      }
+    });
+  }
+  const managerView = (res) => {
+    let query = "SELECT maneger_id, first_name, last_name FROM employee WHERE manager_id IN (SELECT Manager_id FROM employee WHERE manager_id IS NOT NULL)";
+    connection.query(query, function(err, res) {
+      
+      if(err) throw err;
+  
+      for (var i = 0; i < res.length; i++) {
+        console.log(
+          res[i].first_name + " " + 
+          res[i].last_name + " || Id: " + 
+          res[i].id
+        );
+      }
+    })
+    menu();
+  }
+ 
