@@ -21,20 +21,53 @@ connection.connect(err => {
 
 const managmentview = () => {
     inquirer
-    .prompt([
-        {
-        type:"list",
-        name:"options",
-        message: "What would like to do?",
+    .prompt({
+        name:'options',
+        type:'list',
+        message: 'What would like to do?',
         choices:[
-            "View all Employees",
-            "View all Employees by Department",
-            "View all Employees by Manager",
-            "Add Employee",
-            "Remove Employee",
-            "Update Emplpoyee's Role",
-            "Update Employee Manager",
-        ],
-        name:"choice"
-    }
-])
+            'View current Employees',
+            'View  Employees by Department',
+            'View  Employees by Manager',
+            'Add  new Employee',
+            'Remove Employee',
+            'Update Employees Role',
+            'Update Employee Manager'],
+
+            name:"choice"
+    })
+    // Based on choice call one of above choices
+    .then((answer) => {
+        console.log(answer. choice);
+
+        switch (answer. choice) {
+            case 'View current empployees':
+            employeeView();
+            break;
+
+            case 'View  Employees by Department':
+                departmentView();
+                break;
+            
+            case  'View  Employees by Manager':
+                managerView();
+                break;
+
+            case 'Add  new Employee':
+                addEmployee();
+                break;
+            
+            case 'Remove Employee':
+                removeEmployee();
+                break;
+            
+            case 'Update Employees Role':
+                updateEmployee();
+                break;
+            
+            case 'Update Employee Manager':
+                updateEmployeeManager();
+                break;
+        }
+    }) 
+};
