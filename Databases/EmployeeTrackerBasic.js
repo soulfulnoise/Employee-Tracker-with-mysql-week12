@@ -46,13 +46,6 @@ const managmentView = () => {
             viewEmployee();
             break;
 
-            case 'View  Employees by Department':
-                departmentView();
-                break;
-            
-            case  'View  Employees by Manager':
-                managerView();
-                break;
 
             case 'Add  new Employee':
                 addEmployee();
@@ -101,10 +94,53 @@ function addEmployeeRole() {
             message:"Salary for employee Role?",
             name:"newSalary"
         },
-        
+        {
+            type:"input",
+            message:"Department id number?",
+            name:"departmentID"
+        }
+    ]).then(function(answer){
+        connection.query("INSERT INTO role(title,salary,department_id) VALUES(?,?,?)",[answer.role_name, answer.newSalary, answer.departmentID], function(err, res){
+            if (err) throw(err);
+            console.table(res);
+            managmentView();
+        })
+    })
 
-    ])
 }
+
+function addEmployee() {
+    inquirer.prompt([
+        {
+            type:"input",
+            message:"First name of employee?",
+            name:"empFirstName"
+        },
+        {
+            type:"input",
+            message:"Last name of employee?",
+            name:"empLameName"
+        },
+        {
+            type:"input",
+            message:"Employee Role Id Number?",
+            name:"roleID"
+        },
+        {
+            type:"input",
+            message:"Assign Manger via Manger id Number.",
+            name:"mangerID"
+        }
+    ]).then(function(answer){
+        connection.query("INSERT INTO emplooyee(first_name,last_name,role_id,manager_id) VALUES(?,?,?,?)",[answer.first_name, answer.last_name, answer.role_id, answer.manager_ID], function(err, res){
+            if (err) throw(err);
+            console.table(res);
+            managmentView();
+        })
+    })
+
+}
+
 
 
 function viewEmployee() {
