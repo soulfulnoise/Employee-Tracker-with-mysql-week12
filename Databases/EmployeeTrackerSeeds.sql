@@ -18,3 +18,18 @@ VALUES
 ("Alvin","Thompson",1,NULL),
 ("Alvin","Thompson",1,NULL),
 
+INSERT INTO role(title,salary, department_id)
+
+VALUES
+
+("CEO", 300000, 1)
+("Office Manager", 150000, 2)
+("Admin Manager", 91000, 5)
+("Opertions Manager", 300000, 3)
+("Tech Manager", 250000, 4)
+("Sales Rep", 90000, 12)
+("Project Lead",85000 , 10)
+("Payroll Manager", 97000, 6)
+("Senior Developer", 140000, 8)
+("Junior Developer", 80000, 1)
+("Account Rep", 100000, 1)
