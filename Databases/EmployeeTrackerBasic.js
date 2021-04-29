@@ -78,6 +78,13 @@ function addDepartment() {
         type:"input",
         message:"Name the new Department.",
         name:"department_name"
+    }).then(function(answer){
+        //after prompts insert new department in the DB
+        connection.query("INSERT DEPARTMENT (name) VALUES (?)",[ answer.department_name] ,function(err, res) {
+            if (err) throw err;
+            console.table(res)
+            managmentView();
+        })
     })
 }
 
