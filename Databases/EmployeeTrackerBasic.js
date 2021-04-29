@@ -73,6 +73,15 @@ const managmentView = () => {
     }) 
 };
 
+function addDepartment() {
+    inquirer.prompt({
+        type:"input",
+        message:"Name the new Department.",
+        name:"department_name"
+    })
+}
+
+
 function viewEmployee() {
     // pull from database  give results in console.log
     let query ="SELECT * FROM emplooyee";
