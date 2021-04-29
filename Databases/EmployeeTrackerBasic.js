@@ -93,8 +93,13 @@ function addEmployeeRole() {
     inquirer.prompt([
         {
             type:"input",
-            message:"Name of Role?",
+            message:"Name of employee Role?",
             name:"role_name"
+        },
+        {
+            type:"input",
+            message:"Salary for employee Role?",
+            name:"newSalary"
         },
         
 
